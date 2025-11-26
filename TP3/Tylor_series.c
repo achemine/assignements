@@ -10,11 +10,11 @@ int main()
     printf("Enter the exponent: ");
     scanf("%d", &x);
 
-    for (int fac = 1; fac <= n-1 ; fac++) {
-        fac *= (fac + 1);
+    for (int fac = 1; fac <= n-1 ; fac++)
+    {
+        result += result + fac;
         
     }
-    
-
+    printf("The result of the Taylor series is: %f\n", result);
     return 0;
 }
