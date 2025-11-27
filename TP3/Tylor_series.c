@@ -8,16 +8,18 @@ int main()
     double result = 1.0, factorial = 1;
 
     // getting user input and verifying it
-    do{
-    printf("Enter the number of terms: ");
-    scanf("%d", &n);
-    printf("Enter the exponent: ");
-    scanf("%d", &x);
+    do
+    {
+        printf("Enter the number of terms: ");
+        scanf("%d", &n);
+        printf("Enter the exponent: ");
+        scanf("%d", &x);
     } while (n <= 0);
 
     // Calculating the Taylor series
-    do {
-        result += pow(x, i) / (factorial*=i);
+    do
+    {
+        result += pow(x, i) / (factorial *= i);
         i++;
     } while (i < n);
 
