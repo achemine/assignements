@@ -1,13 +1,17 @@
 #include <stdio.h>
 
-int main(){
+int main()
+{
     /*declaring our values */
     int N;
     int sum = 0;
 
-    /*asking user for input*/
-    printf("Enter a positive integer N: ");
-    scanf("%d", &N);
+    /*asking user for input until a positive integer is entered*/
+    do
+    {
+        printf("Enter a positive integer N: ");
+        scanf("%d", &N);
+    } while (N <= 0);
 
     /*calculating the sum of first N integers*/
     for (int i = 1; i <= N; i++)
