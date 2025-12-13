@@ -19,14 +19,18 @@ int main()
     Un = A;
     Un1 = (Un + (A / Un)) / 2;
     printf("iteration %d: %f\n", pointer, Un);
-    while (fabs(Un1 - Un) > epsilon)
+
+    // Calculating the sequence until the desired precision is reached
+    while (fabs(Un1 - Un) < epsilon)
     {
         pointer++;
         printf("iteration %d: %f\n", pointer, Un1);
 
-        Un = Un1;
-        Un1 = (Un + (A / Un)) / 2;
+        // Un = Un1;
+        // Un1 = (Un + (A / Un)) / 2;
     }
+
+    // Final iteration and result display
     pointer++;
     printf("iteration %d: %f\n", pointer, Un1);
     printf("the square root of %f is approximately: %f\n", A, Un1);
