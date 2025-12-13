@@ -10,7 +10,7 @@ int main()
         scanf(" %c", &N);
         while (N != '#')
         {
-            printf("%d You entered: %c\n", count + 1, N);
+            printf("%d You entered: %c\n", count, N);
             count++;
             break;
         }
