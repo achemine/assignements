@@ -5,7 +5,7 @@
 int main() {
     // declaring variablies and getting user's input
     char str[MAX], copy[MAX], cleaned[MAX], temp[MAX];
-    int choice, len = 0;
+    int choice;
 
     printf("Enter a string (max 200 characters): ");
     fgets(str, MAX, stdin);
@@ -29,7 +29,7 @@ int main() {
 
             /* 1. String length */
             case 1: {
-                
+                int len = 0;
                 while (str[len] != '\0')
                     len++;
                 printf("String length: %d characters\n", len);
@@ -52,18 +52,26 @@ int main() {
 
             /* 3. Count vowels */
             case 3: {
-                int vowels = 0,
+                int vowels = 0, length = 0;
                 char c;
 
-                for (int i = 0; str[i] != '\0'; i++) 
-                {
-                    if ( c == 'a' || c == 'e' || c == 'i' ||
+                for (int i = 0; str[i] != '\0'; i++) {
+                    c = str[i];
+                    if (c >= 'A' && c <= 'Z')
+                        c = c + 32;
+
+                    if (c == 'a' || c == 'e' || c == 'i' ||
                         c == 'o' || c == 'u')
                         vowels++;
+
+                    if (str[i] != '\n')
+                        length++;
                 }
 
                 printf("Vowel count: %d\n", vowels);
-                printf("Percentage of vowels: %.2f%%\n",(vowels * 100.0) / len);
+                if (length > 0)
+                    printf("Percentage of vowels: %.2f%%\n",
+                           (vowels * 100.0) / length);
                 break;
             }
 
