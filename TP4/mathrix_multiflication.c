@@ -23,7 +23,6 @@ int main()
         scanf("%d", &colB);
     } while (rowB > 100 && colB > 100 && rowB < 0 && colB < 0);
 
-    
     // Check if multiplication is possible
     if (colA != rowB)
     {
@@ -76,7 +75,7 @@ int main()
 
     // Displaying the all matrices
     printf("Matrix A:\n");
-    for (int i = 0; i < rowA; i++)  
+    for (int i = 0; i < rowA; i++)
     {
         for (int j = 0; j < colA; j++)
         {
@@ -94,7 +93,6 @@ int main()
         }
         printf("\n");
     }
-
 
     printf("Result of multiplication (Matrix C):\n");
     for (int i = 0; i < rowA; i++)
