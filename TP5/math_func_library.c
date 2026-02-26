@@ -94,3 +94,40 @@ int is_prime(int n)
 }
 
 //phase 2
+void euclidean_devision(int a, int b, int *quotient, int *remainder)
+{
+    *quotient = a / b;
+    *remainder = a % b;
+}
+
+//phase 2,2
+void arr_min_max(int arr[], int size, int *min, int *max)
+{
+    *min = arr[0];
+    *max = arr[0];
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] < *min)
+        {
+            *min = arr[i];
+        }
+        if (arr[i] > *max)
+        {
+            *max = arr[i];
+        }
+    }
+}
+
+//phase 2,3
+double arr_avg(int arr[], int n)
+{
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
+    return (double)sum / n;
+}
+
+//phase 2,4
+//phase 2,5
