@@ -128,8 +128,7 @@ int main()
             printf("Enter an integer to find its prime factors: ");
             scanf("%d", &n);
             printf("Prime factors of %d are: ", n);
-            int num = n8
-            ;
+            int num = n8;
             for (int i = 2; i <= num; i++)
             {
                 while (num % i == 0)
