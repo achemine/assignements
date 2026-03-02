@@ -10,9 +10,12 @@ int arr_min(int arr[], int size, int *min);
 int arr_max(int arr[], int size, int *max);
 void euclidean_division(int a, int b, int *quotient, int *remainder);
 void arr_min_and_max(int arr[], int size, int *min, int *max);
+int arr_sum(int arr[], int n);
 double arr_avg(int arr[], int n);
 void display_array(int arr[], int n, int *highlight_idx);
 void compute_statistics(int arr[], int n, int *highlight_idx);
+double compute_discr(double a, double b, double c);
+void solve_quadratic(double a, double b, double c, double *root1, double *root2, int *num_roots);
 
 // main code
 int main()
