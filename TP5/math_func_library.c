@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-//function's prototypes
+// function's prototypes
 int pow_of_N(int N, int pow);
 int GCD(int a, int b);
 int lcm(int a, int b);
@@ -11,106 +11,119 @@ int arr_max(int arr[], int size, int *max);
 void euclidean_division(int a, int b, int *quotient, int *remainder);
 void arr_min_and_max(int arr[], int size, int *min, int *max);
 double arr_avg(int arr[], int n);
-void display_array (int arr [] , int n , int *highlight_idx );
-void compute_statistics (int arr [] , int n, int *highlight_idx);
+void display_array(int arr[], int n, int *highlight_idx);
+void compute_statistics(int arr[], int n, int *highlight_idx);
 
-//main code
+// main code
 int main()
 {
     int choice;
-    do{
-        printf ("\n=== Mathematical Functions Library ===\n") ;
-        printf ("1. Integer power \n") ;
-        printf ("2. GCD and LCM \n") ;
-        printf ("3. Prime checker \n") ;
-        printf ("4. Euclidean division \n") ;
-        printf ("5. Array statistics \n") ;
-        printf ("6. Quadratic equation solver \n");
-        printf ("0. Exit \n");
-        printf (" Choice : ");
-        scanf ("%d", & choice ) ;
+    printf("\n=== Mathematical Functions Library ===\n");
+    printf("1. Integer power \n");
+    printf("2. GCD and LCM \n");
+    printf("3. Prime checker \n");
+    printf("4. Euclidean division \n");
+    printf("5. Array statistics \n");
+    printf("6. Quadratic equation solver \n");
+    printf("0. Exit \n");
+    do
+    {
+        
+        printf(" Choice : ");
+        scanf("%d", &choice);
 
         switch (choice)
         {
-            case 1:
-                int a, b;
-                printf("Enter an integer N and its power: ");
-                scanf("%d %d" , &a, &b);
-                printf("%d raised to the power of %d is: %d\n", a, b, pow_of_N(a, b));
-                break;
-            case 2:
-                int x, y;
-                printf("Enter two integers: ");
-                scanf("%d %d", &x, &y);
-                printf("GCD of %d and %d is: %d\n", x, y, GCD(x, y));
-                printf("LCM of %d and %d is: %d\n", x, y, lcm(x, y));
-                break;
-            case 3:
-                int num;
-                printf("Enter an integer to check if it's prime: ");
-                scanf("%d", &num);
-                if (is_prime(num))
-                {
-                    printf("%d is a prime number.\n", num);
-                }
-                else
-                {
-                    printf("%d is not a prime number.\n", num);
-                }
-                break;
-            case 4:
-                int dividend, divisor, quotient, remainder;
-                printf("Enter dividend and divisor: ");
-                scanf("%d %d", &dividend, &divisor);
-                euclidean_division(dividend, divisor, &quotient, &remainder);
-                printf("Quotient: %d, Remainder: %d\n", quotient, remainder);
-                break;
-            case 5:
-                int size;
-                int arr[100];
-                printf("Enter the size of the array(100 maximum): ");
-                scanf("%d", &size);
-                for (int i = 0; i < size; i++)
-                {
-                    printf("Enter element %d: ", i + 1);
-                    scanf("%d", &arr[i]);
-                }
-                int highlight_idx;
-                printf("Enter the index to highlight (0 to %d): ", size - 1);
-                scanf("%d", &highlight_idx);
-                compute_statistics(arr, size, &highlight_idx);
-                break;
-            case 6:
-                double a, b, c, root1, root2;
-                int num_roots;
-                printf("Enter coefficients a, b, and c for the quadratic equation ax^2 + bx + c = 0: ");
-                scanf("%lf %lf %lf", &a, &b, &c);
-                solve_quadratic(a, b, c, &root1, &root2, &num_roots);
-                break;
-            case 0:
-                printf("Exiting the program. Goodbye!\n");
-                break;
-            default:
-                printf("Invalid choice. Please try again.\n");
+        case 1:
+        {
+            int base, exponent;
+            printf("Enter an integer N and its power: ");
+            scanf("%d %d", &base, &exponent);
+            printf("%d raised to the power of %d is: %d\n", base, exponent, pow_of_N(base, exponent));
+            break;
         }
-    } while(choice != 0);
-    return 0;    
+        case 2:
+        {
+            int x, y;
+            printf("Enter two integers: ");
+            scanf("%d %d", &x, &y);
+            printf("GCD of %d and %d is: %d\n", x, y, GCD(x, y));
+            printf("LCM of %d and %d is: %d\n", x, y, lcm(x, y));
+            break;
+        }
+        case 3:
+        {
+            int num;
+            printf("Enter an integer to check if it's prime: ");
+            scanf("%d", &num);
+            if (is_prime(num))
+            {
+                printf("%d is a prime number.\n", num);
+            }
+            else
+            {
+                printf("%d is not a prime number.\n", num);
+            }
+            break;
+        }
+        case 4:
+        {
+            int dividend, divisor, quotient, remainder;
+            printf("Enter dividend and divisor: ");
+            scanf("%d %d", &dividend, &divisor);
+            euclidean_division(dividend, divisor, &quotient, &remainder);
+            printf("Quotient: %d, Remainder: %d\n", quotient, remainder);
+            break;
+        }
+        case 5:
+        {
+            int size;
+            int arr[100];
+            printf("Enter the size of the array(100 maximum): ");
+            scanf("%d", &size);
+            for (int i = 0; i < size; i++)
+            {
+                printf("Enter element %d: ", i + 1);
+                scanf("%d", &arr[i]);
+            }
+            int highlight_idx;
+            printf("Enter the index to highlight (0 to %d): ", size - 1);
+            scanf("%d", &highlight_idx);
+            compute_statistics(arr, size, &highlight_idx);
+            break;
+        }
+        case 6:
+        {
+            double a, b, c, root1, root2;
+            int num_roots;
+            printf("Enter coefficients a, b, and c for the quadratic equation ax^2 + bx + c = 0: ");
+            scanf("%lf %lf %lf", &a, &b, &c);
+            solve_quadratic(a, b, c, &root1, &root2, &num_roots);
+            break;
+        }
+        case 0:
+            printf("Exiting the program. Goodbye!\n");
+            break;
+        default:
+            printf("Invalid choice. Please try again.\n");
+        }
+    } while (choice != 0);
+    return 0;
 }
 
-//function's definitions:
-//phase 1,1
+// function's definitions:
+// phase 1,1
 int pow_of_N(int N, int pow)
-{   
+{
     int result = 1;
     for (int i = 0; i < pow; i++)
     {
-       result *= N;
+        result *= N;
     }
     return result;
 }
 
-
-//phase 1,2 
+// phase 1,2
 int GCD(int a, int b)
 {
 
@@ -130,10 +143,10 @@ int GCD(int a, int b)
 
 int lcm(int a, int b)
 {
-   return (a * b) / GCD(a, b);
+    return (a * b) / GCD(a, b);
 }
 
-//phase 1.3
+// phase 1.3
 int is_prime(int n)
 {
     if (n <= 2 && n >= 0)
@@ -150,14 +163,14 @@ int is_prime(int n)
     return 1;
 }
 
-//phase 2
+// phase 2
 void euclidean_division(int a, int b, int *quotient, int *remainder)
 {
     *quotient = a / b;
     *remainder = a % b;
 }
 
-//phase 2,2
+// phase 2,2
 int arr_min(int arr[], int size, int *min)
 {
     *min = arr[0];
@@ -190,7 +203,7 @@ void arr_min_and_max(int arr[], int size, int *min, int *max)
     arr_max(arr, size, max);
 }
 
-//phase 2,3
+// phase 2,3
 int arr_sum(int arr[], int n)
 {
     int sum = 0;
@@ -206,8 +219,8 @@ double arr_avg(int arr[], int n)
     return (double)sum / n;
 }
 
-//phase 2,4
-void display_array (int arr [] , int n , int *highlight_idx )
+// phase 2,4
+void display_array(int arr[], int n, int *highlight_idx)
 {
     for (int i = 0; i < n; i++)
     {
@@ -223,10 +236,8 @@ void display_array (int arr [] , int n , int *highlight_idx )
     printf("\n");
 }
 
-
-
-//phase 2,5
-void compute_statistics (int arr [] , int n, int *highlight_idx)
+// phase 2,5
+void compute_statistics(int arr[], int n, int *highlight_idx)
 {
     int min, max;
     arr_min_and_max(arr, n, &min, &max);
@@ -238,16 +249,16 @@ void compute_statistics (int arr [] , int n, int *highlight_idx)
     printf("Average: %.2f\n", avg);
 }
 
-//phase 3
-//phase 3,1
-double compute_discr ( double a , double b , double c)
+// phase 3
+// phase 3,1
+double compute_discr(double a, double b, double c)
 {
     return b * b - 4 * a * c;
 }
 
-//phase 3,2
-void solve_quadratic ( double a , double b , double c , double *root1 , double *root2, int *num_roots)
-{   
+// phase 3,2
+void solve_quadratic(double a, double b, double c, double *root1, double *root2, int *num_roots)
+{
     double delta = compute_discr(a, b, c);
     if (delta > 0)
     {
