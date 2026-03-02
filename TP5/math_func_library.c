@@ -35,27 +35,57 @@ int main()
             case 1:
                 int a, b;
                 printf("Enter an integer N and its power: ");
-                scanf("%d %d", &a, &b);
+                scanf("%d %d" , &a, &b);
                 printf("%d raised to the power of %d is: %d\n", a, b, pow_of_N(a, b));
                 break;
             case 2:
                 int x, y;
-                printf("Enter two integers to compute GCD and LCM: ");
+                printf("Enter two integers: ");
                 scanf("%d %d", &x, &y);
                 printf("GCD of %d and %d is: %d\n", x, y, GCD(x, y));
                 printf("LCM of %d and %d is: %d\n", x, y, lcm(x, y));
                 break;
             case 3:
-                // Code for prime checker
+                int num;
+                printf("Enter an integer to check if it's prime: ");
+                scanf("%d", &num);
+                if (is_prime(num))
+                {
+                    printf("%d is a prime number.\n", num);
+                }
+                else
+                {
+                    printf("%d is not a prime number.\n", num);
+                }
                 break;
             case 4:
-                // Code for Euclidean division
+                int dividend, divisor, quotient, remainder;
+                printf("Enter dividend and divisor: ");
+                scanf("%d %d", &dividend, &divisor);
+                euclidean_division(dividend, divisor, &quotient, &remainder);
+                printf("Quotient: %d, Remainder: %d\n", quotient, remainder);
                 break;
             case 5:
-                // Code for array statistics
+                int size;
+                int arr[100];
+                printf("Enter the size of the array(100 maximum): ");
+                scanf("%d", &size);
+                for (int i = 0; i < size; i++)
+                {
+                    printf("Enter element %d: ", i + 1);
+                    scanf("%d", &arr[i]);
+                }
+                int highlight_idx;
+                printf("Enter the index to highlight (0 to %d): ", size - 1);
+                scanf("%d", &highlight_idx);
+                compute_statistics(arr, size, &highlight_idx);
                 break;
             case 6:
-                // Code for quadratic equation solver
+                double da, db, dc, root1, root2;
+                int num_roots;
+                printf("Enter coefficients a, b, and c for the quadratic equation: ");
+                scanf("%lf %lf %lf", &da, &db, &dc);
+                solve_quadratic(da, db, dc, &root1, &root2, &num_roots);
                 break;
             case 0:
                 printf("Exiting the program. Goodbye!\n");
@@ -219,14 +249,17 @@ void solve_quadratic ( double a , double b , double c , double *root1 , double *
         *root1 = (-b + sqrt(delta)) / (2 * a);
         *root2 = (-b - sqrt(delta)) / (2 * a);
         *num_roots = 2;
+        printf("The equation has two real roots: %.2lf and %.2lf\n", *root1, *root2);
     }
     else if (delta == 0)
     {
         *root1 = *root2 = -b / (2 * a);
-        *num_roots = 1; 
+        *num_roots = 1;
+        printf("The equation has one real root: %.2lf\n", *root1);
     }
     else
     {
+        printf("The equation has no real roots.\n");
         *num_roots = 0;
     }
 }
