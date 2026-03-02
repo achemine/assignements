@@ -28,10 +28,12 @@ int main()
     printf("4. Euclidean division \n");
     printf("5. Array statistics \n");
     printf("6. Quadratic equation solver \n");
+    printf("7. prime numbers between 1 and N \n");
+    printf("8. prime factorisor \n");
     printf("0. Exit \n");
     do
     {
-        
+
         printf(" Choice : ");
         scanf("%d", &choice);
 
@@ -104,6 +106,41 @@ int main()
             solve_quadratic(a, b, c, &root1, &root2, &num_roots);
             break;
         }
+        case 7:
+        {
+            int N;
+            printf("Enter an integer N to find prime numbers between 1 and N: ");
+            scanf("%d", &N);
+            printf("Prime numbers between 1 and %d are: ", N);
+            for (int i = 2; i <= N; i++)
+            {
+                if (is_prime(i))
+                {
+                    printf("%d ", i);
+                }
+            }
+            printf("\n");
+            break;
+        }
+        case 8:
+        {
+            int n;
+            printf("Enter an integer to find its prime factors: ");
+            scanf("%d", &n);
+            printf("Prime factors of %d are: ", n);
+            int num = n8
+            ;
+            for (int i = 2; i <= num; i++)
+            {
+                while (num % i == 0)
+                {
+                    printf("%d ", i);
+                    num /= i;
+                }
+            }
+            printf("\n");
+            break;
+        }
         case 0:
             printf("Exiting the program. Goodbye!\n");
             break;
@@ -115,7 +152,7 @@ int main()
 }
 
 // function's definitions:
-// phase 1,1
+// phase 1:
 int pow_of_N(int N, int pow)
 {
     int result = 1;
@@ -126,7 +163,7 @@ int pow_of_N(int N, int pow)
     return result;
 }
 
-// phase 1,2
+// phase 1.2
 int GCD(int a, int b)
 {
 
@@ -200,12 +237,6 @@ int arr_max(int arr[], int size, int *max)
     return *max;
 }
 
-void arr_min_and_max(int arr[], int size, int *min, int *max)
-{
-    arr_min(arr, size, min);
-    arr_max(arr, size, max);
-}
-
 // phase 2,3
 int arr_sum(int arr[], int n)
 {
@@ -216,6 +247,7 @@ int arr_sum(int arr[], int n)
     }
     return sum;
 }
+
 double arr_avg(int arr[], int n)
 {
     double sum = arr_sum(arr, n);
@@ -243,13 +275,13 @@ void display_array(int arr[], int n, int *highlight_idx)
 void compute_statistics(int arr[], int n, int *highlight_idx)
 {
     int min, max;
-    arr_min_and_max(arr, n, &min, &max);
-    double avg = arr_avg(arr, n);
+    arr_min(arr, n, &min);
+    arr_max(arr, n, &max);
     display_array(arr, n, highlight_idx);
     printf("Minimum: %d\n", min);
     printf("Maximum: %d\n", max);
     printf("sum: %d\n", arr_sum(arr, n));
-    printf("Average: %.2f\n", avg);
+    printf("Average: %.2f\n", arr_avg(arr, n));
 }
 
 // phase 3
