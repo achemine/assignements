@@ -81,11 +81,6 @@ int main()
                 compute_statistics(arr, size, &highlight_idx);
                 break;
             case 6:
-                double da, db, dc, root1, root2;
-                int num_roots;
-                printf("Enter coefficients a, b, and c for the quadratic equation: ");
-                scanf("%lf %lf %lf", &da, &db, &dc);
-                solve_quadratic(da, db, dc, &root1, &root2, &num_roots);
                 break;
             case 0:
                 printf("Exiting the program. Goodbye!\n");
@@ -191,13 +186,18 @@ void arr_min_and_max(int arr[], int size, int *min, int *max)
 }
 
 //phase 2,3
-double arr_avg(int arr[], int n)
+int arr_sum(int arr[], int n)
 {
     int sum = 0;
     for (int i = 0; i < n; i++)
     {
         sum += arr[i];
     }
+    return sum;
+}
+double arr_avg(int arr[], int n)
+{
+    double sum = arr_sum(arr, n);
     return (double)sum / n;
 }
 
@@ -229,7 +229,7 @@ void compute_statistics (int arr [] , int n, int *highlight_idx)
     display_array(arr, n, highlight_idx);
     printf("Minimum: %d\n", min);
     printf("Maximum: %d\n", max);
-    printf("sum: %d\n", arr_avg(arr, n)*n);
+    printf("sum: %d\n", arr_sum(arr, n));
     printf("Average: %.2f\n", avg);
 }
 
