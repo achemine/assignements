@@ -19,7 +19,7 @@ int main()
 {
     int choice;
     do{
-        printf ("\n=== Mathematical Functions Library ===\ n") ;
+        printf ("\n=== Mathematical Functions Library ===\n") ;
         printf ("1. Integer power \n") ;
         printf ("2. GCD and LCM \n") ;
         printf ("3. Prime checker \n") ;
@@ -29,7 +29,41 @@ int main()
         printf ("0. Exit \n");
         printf (" Choice : ");
         scanf ("%d", & choice ) ;
-    while(choice != 0);
+
+        switch (choice)
+        {
+            case 1:
+                int a, b;
+                printf("Enter an integer N and its power: ");
+                scanf("%d %d", &a, &b);
+                printf("%d raised to the power of %d is: %d\n", a, b, pow_of_N(a, b));
+                break;
+            case 2:
+                int x, y;
+                printf("Enter two integers to compute GCD and LCM: ");
+                scanf("%d %d", &x, &y);
+                printf("GCD of %d and %d is: %d\n", x, y, GCD(x, y));
+                printf("LCM of %d and %d is: %d\n", x, y, lcm(x, y));
+                break;
+            case 3:
+                // Code for prime checker
+                break;
+            case 4:
+                // Code for Euclidean division
+                break;
+            case 5:
+                // Code for array statistics
+                break;
+            case 6:
+                // Code for quadratic equation solver
+                break;
+            case 0:
+                printf("Exiting the program. Goodbye!\n");
+                break;
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    } while(choice != 0);
     return 0;    
 }
 
