@@ -81,6 +81,11 @@ int main()
                 compute_statistics(arr, size, &highlight_idx);
                 break;
             case 6:
+                double a, b, c, root1, root2;
+                int num_roots;
+                printf("Enter coefficients a, b, and c for the quadratic equation ax^2 + bx + c = 0: ");
+                scanf("%lf %lf %lf", &a, &b, &c);
+                solve_quadratic(a, b, c, &root1, &root2, &num_roots);
                 break;
             case 0:
                 printf("Exiting the program. Goodbye!\n");
