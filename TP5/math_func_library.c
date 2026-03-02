@@ -29,7 +29,7 @@ int main()
     printf("5. Array statistics \n");
     printf("6. Quadratic equation solver \n");
     printf("7. prime numbers between 1 and N \n");
-    printf("8. prime factorisor \n");
+    printf("8. prime factors \n");
     printf("0. Exit \n");
     do
     {
@@ -128,7 +128,7 @@ int main()
             printf("Enter an integer to find its prime factors: ");
             scanf("%d", &n);
             printf("Prime factors of %d are: ", n);
-            int num = n8;
+            int num = n ;
             for (int i = 2; i <= num; i++)
             {
                 while (num % i == 0)
