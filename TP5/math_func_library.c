@@ -16,8 +16,20 @@ void compute_statistics (int arr [] , int n, int *highlight_idx);
 
 //main code
 int main()
-{;
-    printf("Testing the math functions library...\n");
+{
+    int choice;
+    do{
+        printf ("\n=== Mathematical Functions Library ===\ n") ;
+        printf ("1. Integer power \n") ;
+        printf ("2. GCD and LCM \n") ;
+        printf ("3. Prime checker \n") ;
+        printf ("4. Euclidean division \n") ;
+        printf ("5. Array statistics \n") ;
+        printf ("6. Quadratic equation solver \n");
+        printf ("0. Exit \n");
+        printf (" Choice : ");
+        scanf ("%d", & choice ) ;
+    while(choice != 0);
     return 0;    
 }
 
