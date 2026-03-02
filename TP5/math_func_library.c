@@ -13,16 +13,12 @@ void arr_min_and_max(int arr[], int size, int *min, int *max);
 double arr_avg(int arr[], int n);
 void display_array (int arr [] , int n , int *highlight_idx );
 void compute_statistics (int arr [] , int n, int *highlight_idx);
-void solve_quadratic ( double a , double b , double c , double *root1 , double *root2, int *num_roots);
-int compute_discr ( double a , double b , double c);
+
 //main code
 int main()
-{
-  int arr[100] , arr_size , highlight_idx;
-  int a, b, c;
-  double root1, root2, da, db, dc ;   
-  
-  
+{;
+    printf("Testing the math functions library...\n");
+    return 0;    
 }
 
 //function's definitions:
@@ -134,7 +130,7 @@ void display_array (int arr [] , int n , int *highlight_idx )
 {
     for (int i = 0; i < n; i++)
     {
-        if (i == highlight_idx)
+        if (i == *highlight_idx)
         {
             printf("[%d] ", arr[i]);
         }
@@ -154,7 +150,7 @@ void compute_statistics (int arr [] , int n, int *highlight_idx)
     int min, max;
     arr_min_and_max(arr, n, &min, &max);
     double avg = arr_avg(arr, n);
-    display_array(arr, n, *highlight_idx);
+    display_array(arr, n, highlight_idx);
     printf("Minimum: %d\n", min);
     printf("Maximum: %d\n", max);
     printf("sum: %d\n", arr_avg(arr, n)*n);
@@ -177,17 +173,14 @@ void solve_quadratic ( double a , double b , double c , double *root1 , double *
         *root1 = (-b + sqrt(delta)) / (2 * a);
         *root2 = (-b - sqrt(delta)) / (2 * a);
         *num_roots = 2;
-        return *num_roots;
     }
     else if (delta == 0)
     {
         *root1 = *root2 = -b / (2 * a);
-        *num_roots = 1;
-        return *num_roots;
+        *num_roots = 1; 
     }
     else
     {
         *num_roots = 0;
-        return *num_roots;
     }
 }
