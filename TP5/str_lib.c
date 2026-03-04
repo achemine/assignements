@@ -6,12 +6,13 @@ void my_strcpy(char *dest, char *src);
 void my_strcat(char *dest, char *src);
 int my_strcmp(char *str1, char *str2);
 void my_strrev(char *str);
+int my_strchr(char *str, char c);
 
 // main code
 int main()
 {
-    char s1[200], s2[200], dest[400];
-    // getting s1 and s2 from user input
+    char s1[200], s2[200], dest[400], c;
+    // getting user input
     printf(" Enter string 1: ");
     fgets(s1, 200, stdin);
     s1[my_strlen(s1) - 1] = '\0';
@@ -20,6 +21,9 @@ int main()
     fgets(s2, 200, stdin);
     s2[my_strlen(s2) - 1] = '\0';
 
+    printf("enter the character to search for its index in the string 1 : ");
+    scanf("%c", &c);
+    
     // first functions testing
     printf("\n=== my_strlen ===\n");
     printf(" Length of \"% s \": %d\n", s1, my_strlen(s1));
@@ -53,6 +57,15 @@ int main()
     my_strrev(dest);
     printf(" Reversed \"% s \": \"% s \"\n", s1, dest);
     return 0;
+
+    // sixth functions testing
+    printf("\n=== my_strchr ===\n");
+    char c ;
+    int idx = my_strchr(s1, c);
+    if (idx != -1)
+        printf(" Character '%c' found at position %d in \"% s \"\n", c, idx, s1);
+    else
+        printf(" Character '%c' not found in \"%s \"\n", c, s1);
 }
 
 // function's definitions:
@@ -117,4 +130,19 @@ void my_strrev(char *str)
         str[i] = str[j - i - 1];
         str[j - i - 1] = temp;
     }
+}
+
+// phase 6(optional challenge)
+int my_strchr(char *str, char c)
+{
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        if (str[i] == c)
+        {
+            return i;
+        }
+        i++;
+    }
+    return -1;
 }
