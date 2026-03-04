@@ -17,13 +17,16 @@ int main()
     fgets(s1, 200, stdin);
     s1[my_strlen(s1) - 1] = '\0';
 
+    printf("enter the character to search for its index in the string 1 : ");
+    scanf("%c", &c);
+    getchar(); // consume the newline left by previous input
+
     printf(" Enter string 2: ");
     fgets(s2, 200, stdin);
     s2[my_strlen(s2) - 1] = '\0';
 
-    printf("enter the character to search for its index in the string 1 : ");
-    scanf("%c", &c);
     
+
     // first functions testing
     printf("\n=== my_strlen ===\n");
     printf(" Length of \"% s \": %d\n", s1, my_strlen(s1));
@@ -60,7 +63,6 @@ int main()
 
     // sixth functions testing
     printf("\n=== my_strchr ===\n");
-    char c ;
     int idx = my_strchr(s1, c);
     if (idx != -1)
         printf(" Character '%c' found at position %d in \"% s \"\n", c, idx, s1);
