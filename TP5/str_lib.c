@@ -25,9 +25,7 @@ int main()
     fgets(s2, 200, stdin);
     s2[my_strlen(s2) - 1] = '\0';
 
-    
-
-    // first functions testing
+        // first functions testing
     printf("\n=== my_strlen ===\n");
     printf(" Length of \"% s \": %d\n", s1, my_strlen(s1));
     printf(" Length of \"% s \": %d\n", s2, my_strlen(s2));
@@ -59,7 +57,6 @@ int main()
     my_strcpy(dest, s1); // work on a copy to keep s1 unchanged
     my_strrev(dest);
     printf(" Reversed \"% s \": \"% s \"\n", s1, dest);
-    return 0;
 
     // sixth functions testing
     printf("\n=== my_strchr ===\n");
@@ -68,6 +65,7 @@ int main()
         printf(" Character '%c' found at position %d in \"% s \"\n", c, idx, s1);
     else
         printf(" Character '%c' not found in \"%s \"\n", c, s1);
+    return 0;
 }
 
 // function's definitions:

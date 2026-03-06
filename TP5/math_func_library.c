@@ -16,7 +16,8 @@ void display_array(int arr[], int n, int *highlight_idx);
 void compute_statistics(int arr[], int n, int *highlight_idx);
 double compute_discr(double a, double b, double c);
 void solve_quadratic(double a, double b, double c, double *root1, double *root2, int *num_roots);
-
+void prime_numbers_between_1_and_N(int N);
+void prime_factors(int n);
 // main code
 int main()
 {
@@ -111,15 +112,7 @@ int main()
             int N;
             printf("Enter an integer N to find prime numbers between 1 and N: ");
             scanf("%d", &N);
-            printf("Prime numbers between 1 and %d are: ", N);
-            for (int i = 2; i <= N; i++)
-            {
-                if (is_prime(i))
-                {
-                    printf("%d ", i);
-                }
-            }
-            printf("\n");
+            prime_numbers_between_1_and_N(N);
             break;
         }
         case 8:
@@ -127,17 +120,7 @@ int main()
             int n;
             printf("Enter an integer to find its prime factors: ");
             scanf("%d", &n);
-            printf("Prime factors of %d are: ", n);
-            int num = n ;
-            for (int i = 2; i <= num; i++)
-            {
-                while (num % i == 0)
-                {
-                    printf("%d ", i);
-                    num /= i;
-                }
-            }
-            printf("\n");
+            prime_factors(n);
             break;
         }
         case 0:
@@ -220,7 +203,13 @@ int arr_min(int arr[], int size, int *min)
             *min = arr[i];
         }
     }
-    return *min;
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] == *min)
+        {
+            return i;
+        }
+    }
 }
 
 int arr_max(int arr[], int size, int *max)
@@ -233,7 +222,13 @@ int arr_max(int arr[], int size, int *max)
             *max = arr[i];
         }
     }
-    return *max;
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] == *max)
+        {
+            return i;
+        }
+    }
 }
 
 // phase 2,3
@@ -312,4 +307,31 @@ void solve_quadratic(double a, double b, double c, double *root1, double *root2,
         printf("The equation has no real roots.\n");
         *num_roots = 0;
     }
+}
+
+void prime_numbers_between_1_and_N(int N)
+{
+    printf("Prime numbers between 1 and %d are: ", N);
+    for (int i = 2; i <= N; i++)
+    {
+        if (is_prime(i))
+        {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+void prime_factors(int n)
+{
+    printf("Prime factors of %d are: ", n);
+    for (int i = 2; i <= n; i++)
+    {
+        while (n % i == 0)
+        {
+            printf("%d ", i);
+            n /= i;
+        }
+    }
+    printf("\n");
 }
